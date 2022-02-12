@@ -1,0 +1,75 @@
+<div class="container border" style="margin-top: 10em;width:50em ;">
+    <div >
+        <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Travel Plan
+        </h2>
+        <h3 style="text-align: center;">Login</h3>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+            <div class="form-group">
+
+                <p>
+
+                    <input class="form-control" type="text" formControlName="UserName" placeholder="UserName" formControlName="UserName" class ="form-control" minlength="5" required [ngClass]="{'is-invalid':formControls.UserName.touched && formControls.UserName.invalid}">
+                    
+                </p>
+
+            </div>
+
+            <div *ngIf="isSubmitted && formControls.UserName.errors">
+
+                <div *ngIf="formControls.UserName.errors">
+
+                    <span  style="color: red;">
+
+                        UserName Required
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <p>
+
+                    <input class="form-control" type="text" formControlName="Password" placeholder="Password" formControlName="Password" class ="form-control" minlength="5" required [ngClass]="{'is-invalid':formControls.Password.touched && formControls.Password.invalid}">
+
+                </p>
+
+            </div>
+
+            <div *ngIf="isSubmitted && formControls.Password.errors">
+
+                <div *ngIf="formControls.Password.errors">
+
+                    <span style="color: red;">
+
+                        Password Required
+
+                    </span>
+
+                </div>
+            </div>
+            <button class="btn btn-primary" style="margin-bottom:.5em ;">Login</button>
+            
+           
+
+
+            <div *ngIf="error">
+
+                {{error}}
+
+            </div>
+
+
+
+
+
+        </form>
+       
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+
+<div class="container border" style="margin-top: 10em;width:30em ;">
+    <h3 style="text-align: center;">Reports</h3>
+   
+        <div class="table table-bordered table-striped">
+
+            <div class="container border" style="margin-top: 10em;font-weight: bolder;">
+                <h2>Destinations</h2>
+                <a href="#" routerLink="/destinations" style="padding-right: 10em;">Destination</a>
+                <div class="row">
+            
+                    <div class="form-control" style="width: 20em;">
+                       
+                        
+                        <br>
+                        <button class="btn btn-primary">Search destination</button>
+                        
+                    </div>
+                </div>
+                <table class ="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th>DestinationId</th>
+                        <th>DestinationName</th>
+                        <th>PlanName</th>
+                        <th>Tname</th>
+                       
+                       </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let use of destinationservice.busdestination |filter:filter | paginate:{itemsPerPage:3,currentPage:page}">
+                            <td>{{use.DestinationId}}</td>
+                            <td>{{use.DestinationName}}</td>
+                            <td>{{use.PlanName}}</td>
+                            <td>{{use.Tname}}</td>
+                           
+                               
+                                <td>
+                                &nbsp;
+                                
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <a href="#" routerLink="/destinationlist">View All plans</a>
+                  
+                    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+                </div>
+            </div>
+        </div>
+   
+</div>

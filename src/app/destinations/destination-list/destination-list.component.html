@@ -1,0 +1,48 @@
+
+<div class="container border" style="margin-top: 10em;font-weight: bolder;">
+    <h2>Destinations</h2>
+    <a href="#" routerLink="/destinations" style="padding-right: 10em;">Destination</a>
+    <div class="row">
+
+        <div class="form-control" style="width: 20em;">
+           
+            <input class="form-control" type="text" placeholder="Search text here..."[(ngModel)]="filter">
+            {{filter}}
+            <br>
+            <button class="btn btn-primary">Search destination</button>
+            
+        </div>
+    </div>
+    <table class ="table table-bordered table-striped">
+        <thead>
+            <tr>
+            <th>DestinationId</th>
+            <th>DestinationName</th>
+            <th>PlanName</th>
+            <th>Tname</th>
+            <th>Noofdays</th>
+            <th>Amount</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let use of destinationservice.destination |filter:filter | paginate:{itemsPerPage:2,currentPage:page}">
+                <td>{{use.DestinationId}}</td>
+                <td>{{use.DestinationName}}</td>
+                <td>{{use.PlanName}}</td>
+                <td>{{use.Tname}}</td>
+                <td>{{use.Noofdays}}</td>
+                <td>{{use.Amount}}</td>
+              
+                   
+                    <td>
+                    &nbsp;
+                    <button class="btn btn-sm btn-outline-danger"(click)="deleteDestinations(use.DestinationId)">X</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+      
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+</div>
